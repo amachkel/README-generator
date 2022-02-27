@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/amachkel/README-generator/issues"
   },
-  "homepage": "https://github.com/amachkel/README-generator#readme"
+  "homepage": "https://github.com/amachkel/README-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
