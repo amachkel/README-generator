@@ -1,25 +1,19 @@
- # title
+# name
 
   ## Description
-  
-  ${desc}
+  desc
 
   ## Table of Contents
-
-  ${table}
+  true
 
   ## Installation
-
-  ${install}
+  npm
 
   ## Usage
-
-  ${usage}
+  inst
 
   ## Credits
-
-  ${credits}
+  me
 
   ## License
-
-  ${license}
+  MIT

@@ -44,21 +44,22 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, function (err) {
-    if (err) console.log("error", err);
-  });
+  return fs.writeFile(fileName, data, (err) =>
+    err ? console.log(err) : console.log("README was created.")
+  );
 }
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((data) => {
-    let buffer = fs.readFileSync("template.md", (err) => {
-      err ? console.log(err) : console.log("README was created");
-    });
-    let fileContents = buffer.toString();
-    console.log(fileContents);
-    let newFile = fileContents.replace("${title}", data.title);
-    writeToFile("README.md", newFile);
+    const generateMarkdown = require("./utils/generateMarkdown");
+    writeToFile("README.md", generateMarkdown(data));
+    // let buffer = fs.readFileSync("template.md", (err) => {
+    //   err ? console.log(err) : console.log("README was created");
+    // });
+    // let fileContents = buffer.toString();
+    // console.log(fileContents);
+    // let newFile = fileContents.replace("${title}", data.title);
   });
 }
 
