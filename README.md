@@ -1,7 +1,7 @@
-# name
+# title
 
   ## Description
-  desc
+  description
 
   ## Table of Contents
   true
@@ -10,10 +10,10 @@
   npm
 
   ## Usage
-  inst
+  Instructions
 
   ## Credits
-  me
+  Me
 
   ## License
   MIT
