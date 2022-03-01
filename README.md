@@ -1,19 +1,23 @@
-# title
+# Title
 
   ## Description
-  description
+  This is my description
 
   ## Table of Contents
-  true
+ - [Description](#Description)
+ - [Installation](#Installation)
+ - [Usage](#Usage)
+ - [Credits](#Credits)
+ - [License](#License)
 
   ## Installation
   npm
 
   ## Usage
-  Instructions
+  Instructions and examples for use
 
   ## Credits
   Me
 
   ## License
-  MIT
+  Apache2.0
