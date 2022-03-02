@@ -1,7 +1,7 @@
-# sdf
+# README Generator
 
   ## Description
-  sdf
+  Generator that allows you to create a professional looking README.md.
 
   ## Table of Contents
  - [Description](#Description)
@@ -14,10 +14,10 @@
   npm
 
   ## Usage
-  set
+  The user will answer prompted questions in the command line, and a README will be generated when they are done.
 
   ## Credits
-  me
+  Me
 
   ## License
-  undefined
+  

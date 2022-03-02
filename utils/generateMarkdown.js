@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// TODO: Create a function that returns a license badge and URL based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(data) {
   const license = data.license[0];
@@ -8,7 +8,7 @@ function renderLicenseBadge(data) {
       name: "Apache 2.0",
       badge: "Apache_2.0",
       color: "blue",
-      url: "https://www.boost.org/LICENSE_1_0.txt",
+      url: "https://opensource.org/licenses/Apache-2.0",
     },
     {
       name: "GNU Public v3.0",
@@ -41,19 +41,15 @@ function renderLicenseBadge(data) {
       url: "http://unlicense.org/",
     },
   ];
-  if (license == "None") {
+
+  let match = choices.find((o) => o.name == license);
+  if (match != undefined && match != null) {
+    let generateLicense = `[![License](https://img.shields.io/badge/License-${match.badge}-${match.color}.svg)](${match.url})`;
+    return generateLicense;
+  } else {
     return "";
-  } else if (license == choices.name) {
-    let generateLicense = `[![License](https://img.shields.io/badge/License-${this.choices.badge}-${this.choices.color}.svg)](${this.choices.url})`;
-    console.log(generateLicense);
-   return generateLicense;
   }
 }
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
