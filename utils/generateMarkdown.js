@@ -1,21 +1,5 @@
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-// function renderLicenseSection(data) {
-//   console.log(data);
-  
-//   if (!data.license[0]) {
-//     console.log("no license chosen");
-//     return "";
-//   } else {
-//     console.log("license chosen");
-//     // let renderLicense = "## License";
-//     // renderLicenseBadge(data, renderLicense);
-//     return renderLicenseBadge(data);
-//   }
-  
-// }
 // TODO: Create a function that returns a license badge and URL based on which license is passed in
-// If there is no license, return an empty string
+// If there is no license chosen, return an empty string
 function renderLicense(data) {
   const license = data.license[0];
   console.log(license);
