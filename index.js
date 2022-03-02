@@ -39,14 +39,14 @@ const questions = [
     name: "license",
     message: "Which license would you like to use?",
     choices: [
-      "None",
-      "Apache2.0",
+      "none",
+      "Apache 2.0",
       "GNU Public v3.0",
       "MIT",
       "Mozilla Public 2.0",
       "Boost Software License 1.0",
       "The Unilicense",
-    ],
+    ]
   },
 ];
 
