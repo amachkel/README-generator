@@ -1,3 +1,13 @@
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(data) {
+  const license = renderLicenseBadge(data);
+  if (!license) {
+    return "";
+  } else {
+    return license;
+  }
+}
 // TODO: Create a function that returns a license badge and URL based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(data) {
@@ -44,21 +54,19 @@ function renderLicenseBadge(data) {
 
   let match = choices.find((o) => o.name == license);
   if (match != undefined && match != null) {
-    let generateLicense = `[![License](https://img.shields.io/badge/License-${match.badge}-${match.color}.svg)](${match.url})`;
+    const generateLicense = `[![License](https://img.shields.io/badge/License-${match.badge}-${match.color}.svg)](${match.url})`;
     return generateLicense;
   } else {
     return "";
   }
 }
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+
 
 // TODO: Create a function to generate markdown for README
 
 function generateMarkdown(data) {
   console.log(data);
-  let license = renderLicenseBadge(data);
+  const license = renderLicenseSection(data);
   return `# ${data.title}
 
   ## Description
@@ -79,8 +87,7 @@ function generateMarkdown(data) {
 
   ## Credits
   ${data.credits}
-
-  ## License
+  
   ${license}`;
 }
 
