@@ -62,12 +62,6 @@ function init() {
   inquirer.prompt(questions).then((data) => {
     const generateMarkdown = require("./utils/generateMarkdown");
     writeToFile("README.md", generateMarkdown(data));
-    // let buffer = fs.readFileSync("template.md", (err) => {
-    //   err ? console.log(err) : console.log("README was created");
-    // });
-    // let fileContents = buffer.toString();
-    // console.log(fileContents);
-    // let newFile = fileContents.replace("${title}", data.title);
   });
 }
 

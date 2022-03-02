@@ -53,19 +53,46 @@ function renderLicense(data) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  // console.log(data);
+  console.log(data);
   const license = renderLicense(data);
+  let markdown = "";
+  let table = "";
+  //need to require title and description.
+  if (data.title) {
+    markdown += `# ${data.title}\n\n`;
+  }
+  if (data.desc) {
+    markdown += `${data.desc}\n\n`;
+    table += " - [Description](#Description)\n";
+  }
+
+  if (data.install) {
+    markdown += `## Installation Requirements\n${data.install}\n\n`;
+    table += " - [Installation Requirements](#Installation-Requirements)\n";
+  }
+  if (data.usage) {
+    markdown += `## Usage\n${data.usage}\n\n`;
+    table += " - [Usage](#Usage)\n";
+  }
+  if (data.credits) {
+    markdown += `## Credits\n${data.credits}\n\n`;
+    table += " - [Credits](#Credits)\n";
+  }
+  if (data.license) {
+    markdown += license;
+    table += " - [License](#License)";
+  }
+  if (data.table) {
+    markdown += `## Table of Contents\n${table}\n\n`;
+  }
+  return markdown;
   return `# ${data.title}
 
   ## Description
   ${data.desc}
 
-  ## Table of Contents
- - [Description](#Description)
- - [Installation](#Installation)
- - [Usage](#Usage)
- - [Credits](#Credits)
- - [License](#License)
+
+ ${table}
 
   ## Installation
   ${data.install}
@@ -79,4 +106,10 @@ function generateMarkdown(data) {
   ${license}`;
 }
 
+// ## Table of Contents
+// - [Description](#Description)
+// - [Installation](#Installation)
+// - [Usage](#Usage)
+// - [Credits](#Credits)
+// - [License](#License)
 module.exports = generateMarkdown;
