@@ -59,64 +59,50 @@ const uni = new License(
 );
 choices.push(uni);
 
-function renderLicense(data) {
+const renderLicense = (data) => {
   let match = choices.find((item) => item.name == data.license);
   if (match) return match.licenseObj();
+};
+const renderTitle = (title) => {
+  return `# ${title}\n`;
+};
+const renderDesc = (description) => {
+  return `${description}\n`;
+};
+const renderTable = (data) => {
+  let toc = "## Table Of Contents\n";
+  if (data.table) {
+    Object.keys(data).forEach((key) => {
+      let objName = key;
+      if (objName == "desc") {
+        toc += ` - [Description](#Description)\n`;
+      } else if (objName != "table" && objName != "title") {
+        toc += ` - [${objName}](#${objName})\n`;
+      }
+    });
+  }
+};
+const renderInstall = (install) => {
+return `\n## Installation Requirements\n ${install}\n`;
 }
-
+const renderUsage = (usage) => {
+  return `## Usage\n${usage}\n`;
+}
+const renderCredits = (credits) => {
+  return `## Credits\n${credits}\n`;
+}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log(data);
-  const license = renderLicense(data);
   let markdown = "";
-  let table = "";
-  //need to require title and description.
-  if (data.title) {
-    markdown += `# ${data.title}\n\n`;
-  }
-  if (data.desc) {
-    markdown += `${data.desc}\n\n`;
-    table += " - [Description](#Description)\n";
-  }
-  if (data.table) {
-    markdown += `## Table of Contents\n${table}\n\n`;
-  }
-  if (data.install) {
-    markdown += `## Installation Requirements\n${data.install}\n\n`;
-    table += " - [Installation Requirements](#Installation-Requirements)\n";
-  }
-  if (data.usage) {
-    markdown += `## Usage\n${data.usage}\n\n`;
-    table += " - [Usage](#Usage)\n";
-  }
-  if (data.credits) {
-    markdown += `## Credits\n${data.credits}\n\n`;
-    table += " - [Credits](#Credits)\n";
-  }
-  if (data.license) {
-    markdown += license;
-    table += " - [License](#License)";
-  }
+  markdown += renderTitle(data.title);
+  markdown += renderDesc(data.desc);
+  markdown += renderTable(data.table);
+  markdown += renderInstall(data.install);
+  markdown += renderUsage(data.usage);
+  markdown += renderCredits(data.credits);
+  markdown += renderLicense(data);
 
   return markdown;
-  return `# ${data.title}
-
-  ## Description
-  ${data.desc}
-
-
- ${table}
-
-  ## Installation
-  ${data.install}
-
-  ## Usage
-  ${data.usage}
-
-  ## Credits
-  ${data.credits}
-  
-  ${license}`;
 }
 
 // ## Table of Contents

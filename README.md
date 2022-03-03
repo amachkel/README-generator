@@ -1,19 +1,11 @@
 # asdf
-
-asdf
-
-## Table of Contents
- - [Description](#Description)
-
-
+sdf
+undefined
 ## Installation Requirements
-npm
-
+ npm
 ## Usage
 asdf
-
 ## Credits
-sadf
-
+asdf
 ## License
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
