@@ -60,6 +60,9 @@ const uni = new License(
 choices.push(uni);
 
 const renderLicense = (data) => {
+  if (data.license == undefined) {
+    return "";
+  }
   let match = choices.find((item) => item.name == data.license);
   if (match) return match.licenseObj();
 };
@@ -70,10 +73,13 @@ const renderDesc = (description) => {
   return `${description}\n`;
 };
 const renderTable = (data) => {
-  let toc = "## Table Of Contents\n";
+  console.log(data);
+  let toc = "";
   if (data.table) {
+    toc  = "## Table Of Contents\n";
     Object.keys(data).forEach((key) => {
       let objName = key;
+      console.log(objName);
       if (objName == "desc") {
         toc += ` - [Description](#Description)\n`;
       } else if (objName != "table" && objName != "title") {
@@ -81,6 +87,8 @@ const renderTable = (data) => {
       }
     });
   }
+  console.log(toc);
+  return toc;
 };
 const renderInstall = (install) => {
 return `\n## Installation Requirements\n ${install}\n`;
@@ -96,7 +104,7 @@ function generateMarkdown(data) {
   let markdown = "";
   markdown += renderTitle(data.title);
   markdown += renderDesc(data.desc);
-  markdown += renderTable(data.table);
+  markdown += renderTable(data);
   markdown += renderInstall(data.install);
   markdown += renderUsage(data.usage);
   markdown += renderCredits(data.credits);
