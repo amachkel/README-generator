@@ -91,7 +91,7 @@ const renderCredits = (credits) => `## Credits\n${credits}\n`;
 function generateMarkdown(data) {
   let markdown = "";
   markdown += renderTitle(data.title);
-  markdown += renderDesc(data.desc);
+  markdown += renderDesc(data.description);
   markdown += renderTable(data);
   markdown += renderInstall(data.install);
   markdown += renderUsage(data.usage);

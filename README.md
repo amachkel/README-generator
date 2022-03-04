@@ -1,5 +1,5 @@
-# t
-undefined
+# test
+test
 ## Table Of Contents
  - [description](#description)
  - [install](#install)
@@ -10,8 +10,8 @@ undefined
 ## Installation Requirements
  npm
 ## Usage
-t
+test
 ## Credits
-t
+test
 ## License
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
