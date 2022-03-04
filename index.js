@@ -12,7 +12,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "desc",
+    name: "description",
     message: "What is a description of your project?",
     validate: inputValid => inputValid ? true : console.log("An answer is required"),
   },

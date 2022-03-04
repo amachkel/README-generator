@@ -64,42 +64,29 @@ const renderLicense = (data) => {
   let match = choices.find((item) => item.name == data.license);
   if (match) return match.licenseObj();
 };
-const renderTitle = (title) => {
-  return `# ${title}\n`;
-};
-const renderDesc = (description) => {
-  return `${description}\n`;
-};
+const renderTitle = (title) => `# ${title}\n`;
+const renderDesc = (description) => `${description}\n`;
 const renderTable = (data) => {
   console.log(data);
   let toc = "";
   if (data.table) {
     toc = "## Table Of Contents\n";
     Object.keys(data).forEach((key) => {
-      let objName = key;
-      console.log(objName);
-      if (objName == "desc") {
-        toc += ` - [Description](#Description)\n`;
-      } else if (objName == "license" && data.license == "none") {
-        return "";
-      }
-      else if (objName != "table" && objName != "title") {
-        toc += ` - [${objName}](#${objName})\n`;
-      }
+      console.log(key);
+       key == "license" && data.license == "none"
+        ? ""
+        : key != "table" && key != "title"
+        ? (toc += ` - [${key}](#${key})\n`)
+        : "";
     });
   }
-  console.log(toc);
   return toc;
 };
-const renderInstall = (install) => {
-  return `\n## Installation Requirements\n ${install}\n`;
-};
-const renderUsage = (usage) => {
-  return `## Usage\n${usage}\n`;
-};
-const renderCredits = (credits) => {
-  return `## Credits\n${credits}\n`;
-};
+const renderInstall = (install) =>
+  `\n## Installation Requirements\n ${install}\n`;
+const renderUsage = (usage) => `## Usage\n${usage}\n`;
+const renderCredits = (credits) => `## Credits\n${credits}\n`;
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let markdown = "";
@@ -109,7 +96,7 @@ function generateMarkdown(data) {
   markdown += renderInstall(data.install);
   markdown += renderUsage(data.usage);
   markdown += renderCredits(data.credits);
-    markdown += renderLicense(data);
+  markdown += renderLicense(data);
 
   return markdown;
 }
