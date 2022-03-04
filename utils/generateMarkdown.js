@@ -1,16 +1,13 @@
 // TODO: Create a function that returns a license badge and URL based on which license is passed in
 // If there is no license chosen, return an empty string
-
-// const license = data.license[0];
-// console.log(license);
 function License(name, badge, color, url) {
   this.name = name;
   this.badge = badge;
   this.color = color;
   this.url = url;
   this.licenseObj = () => {
+    console.log(this.licenseObj);
     const generateLicense = `[![License](https://img.shields.io/badge/License-${badge}-${color}.svg)](${url})`;
-    console.log(generateLicense);
     return `## License\n${generateLicense}`;
   };
 }
@@ -60,7 +57,8 @@ const uni = new License(
 choices.push(uni);
 
 const renderLicense = (data) => {
-  if (data.license == undefined) {
+  console.log(data.license);
+  if (data.license == "none") {
     return "";
   }
   let match = choices.find((item) => item.name == data.license);
@@ -76,13 +74,16 @@ const renderTable = (data) => {
   console.log(data);
   let toc = "";
   if (data.table) {
-    toc  = "## Table Of Contents\n";
+    toc = "## Table Of Contents\n";
     Object.keys(data).forEach((key) => {
       let objName = key;
       console.log(objName);
       if (objName == "desc") {
         toc += ` - [Description](#Description)\n`;
-      } else if (objName != "table" && objName != "title") {
+      } else if (objName == "license" && data.license == "none") {
+        return "";
+      }
+      else if (objName != "table" && objName != "title") {
         toc += ` - [${objName}](#${objName})\n`;
       }
     });
@@ -91,14 +92,14 @@ const renderTable = (data) => {
   return toc;
 };
 const renderInstall = (install) => {
-return `\n## Installation Requirements\n ${install}\n`;
-}
+  return `\n## Installation Requirements\n ${install}\n`;
+};
 const renderUsage = (usage) => {
   return `## Usage\n${usage}\n`;
-}
+};
 const renderCredits = (credits) => {
   return `## Credits\n${credits}\n`;
-}
+};
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let markdown = "";
@@ -108,54 +109,9 @@ function generateMarkdown(data) {
   markdown += renderInstall(data.install);
   markdown += renderUsage(data.usage);
   markdown += renderCredits(data.credits);
-  markdown += renderLicense(data);
+    markdown += renderLicense(data);
 
   return markdown;
 }
 
-// ## Table of Contents
-// - [Description](#Description)
-// - [Installation](#Installation)
-// - [Usage](#Usage)
-// - [Credits](#Credits)
-// - [License](#License)
 module.exports = generateMarkdown;
-
-// const choices = [
-//   {
-//     name: "Apache 2.0",
-//     badge: "Apache_2.0",
-//     color: "blue",
-//     url: "https://opensource.org/licenses/Apache-2.0",
-//   },
-//   {
-//     name: "GNU Public v3.0",
-//     badge: "GPLv3",
-//     color: "blue",
-//     url: "https://www.gnu.org/licenses/gpl-3.0",
-//   },
-//   {
-//     name: "MIT",
-//     badge: "MIT",
-//     color: "yellow",
-//     url: "https://opensource.org/licenses/MIT",
-//   },
-//   {
-//     name: "Mozilla Public 2.0",
-//     badge: "MPL_2.0",
-//     color: "brightgreen",
-//     url: "https://opensource.org/licenses/MPL-2.0",
-//   },
-//   {
-//     name: "Boost Software License 1.0",
-//     badge: "Boost_1.0",
-//     color: "lightblue",
-//     url: "https://www.boost.org/LICENSE_1_0.txt",
-//   },
-//   {
-//     name: "The Unilicense",
-//     badge: "Unlicense",
-//     color: "blue",
-//     url: "http://unlicense.org/",
-//   },
-// ];
