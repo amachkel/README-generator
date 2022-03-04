@@ -8,11 +8,13 @@ const questions = [
     type: "input",
     name: "title",
     message: "What is the title of your project?",
+    validate: inputValid => inputValid ? true : console.log("An answer is required"),
   },
   {
     type: "input",
     name: "desc",
     message: "What is a description of your project?",
+    validate: inputValid => inputValid ? true : console.log("An answer is required"),
   },
   {
     type: "confirm",
@@ -47,7 +49,7 @@ const questions = [
       "Mozilla Public 2.0",
       "Boost Software License 1.0",
       "The Unilicense",
-    ]
+    ],
   },
 ];
 
