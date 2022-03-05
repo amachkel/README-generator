@@ -89,7 +89,7 @@ const renderTable = (data) => {
 const renderInstall = (installation) =>
   `\n## Installation Requirements\n  ---- \n ${installation}\n`;
 const renderUsage = (usage) => `\n ## Usage\n  ---- \n ${usage}\n`;
-const renderCredits = (credits) => `## Credits\n  ---- \n ${credits}\n`;
+const renderCredits = (credits) => `## Contributors\n  ---- \n ${credits}\n`;
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -99,7 +99,7 @@ function generateMarkdown(data) {
   markdown += renderTable(data);
   markdown += renderInstall(data.installation);
   markdown += renderUsage(data.usage);
-  markdown += renderCredits(data.credits);
+  markdown += renderCredits(data.contributors);
   markdown += renderLicense(data);
   return markdown;
 }

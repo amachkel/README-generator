@@ -34,7 +34,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "credits",
+    name: "contributors",
     message: "List collaborators here.",
   },
   {

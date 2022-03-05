@@ -6,7 +6,7 @@ test
  - [description](#description)
  - [installation](#installation)
  - [usage](#usage)
- - [credits](#credits)
+ - [contributors](#contributors)
  - [license](#license)
 
 ## Installation Requirements
@@ -16,10 +16,10 @@ test
  ## Usage
   ---- 
  test
-## Credits
+## Contributors
   ---- 
  test
 ## License
- This application is covererd under GNU Public v3.0. Click the badge to learn more. 
+ This application is covererd under Boost Software License 1.0. Click the badge to learn more. 
 
- [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+ [![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
