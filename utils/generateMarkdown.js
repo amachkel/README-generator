@@ -8,9 +8,10 @@ function License(name, badge, color, url) {
   this.licenseObj = () => {
     console.log(this.licenseObj);
     const generateLicense = `[![License](https://img.shields.io/badge/License-${badge}-${color}.svg)](${url})`;
-    return `## License\n${generateLicense}`;
+    return `## License\n This application is covererd under ${name}. Click the badge to learn more. \n\n ${generateLicense}`;
   };
 }
+//each license object is created and then pushed to choices array
 let choices = [];
 
 const apache = new License(
@@ -65,16 +66,19 @@ const renderLicense = (data) => {
   if (match) return match.licenseObj();
 };
 const renderTitle = (title) => `# ${title}\n`;
-const renderDesc = (description) => `${description}\n`;
+const renderDesc = (description) => `${description}\n --- \n`;
 const renderTable = (data) => {
   console.log(data);
   let toc = "";
   if (data.table) {
-    toc = "## Table Of Contents\n";
+    toc = "## Table Of Contents \n ---- \n";
     Object.keys(data).forEach((key) => {
       console.log(key);
-       key == "license" && data.license == "none"
+      //conditionals chain to determine what's put in the table of contents and how.
+      key == "license" && data.license == "none"
         ? ""
+        // : key == "installation"
+        // ? (toc += ` - [Installation](#${key})\n`)
         : key != "table" && key != "title"
         ? (toc += ` - [${key}](#${key})\n`)
         : "";
@@ -82,10 +86,10 @@ const renderTable = (data) => {
   }
   return toc;
 };
-const renderInstall = (install) =>
-  `\n## Installation Requirements\n ${install}\n`;
-const renderUsage = (usage) => `## Usage\n${usage}\n`;
-const renderCredits = (credits) => `## Credits\n${credits}\n`;
+const renderInstall = (installation) =>
+  `\n## Installation Requirements\n  ---- \n ${installation}\n`;
+const renderUsage = (usage) => `\n ## Usage\n  ---- \n ${usage}\n`;
+const renderCredits = (credits) => `## Credits\n  ---- \n ${credits}\n`;
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -93,11 +97,10 @@ function generateMarkdown(data) {
   markdown += renderTitle(data.title);
   markdown += renderDesc(data.description);
   markdown += renderTable(data);
-  markdown += renderInstall(data.install);
+  markdown += renderInstall(data.installation);
   markdown += renderUsage(data.usage);
   markdown += renderCredits(data.credits);
   markdown += renderLicense(data);
-
   return markdown;
 }
 

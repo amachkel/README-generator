@@ -23,7 +23,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "install",
+    name: "installation",
     message: "What is required to install your project?",
     default: "npm",
   },

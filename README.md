@@ -1,17 +1,25 @@
 # test
 test
-## Table Of Contents
+ --- 
+## Table Of Contents 
+ ---- 
  - [description](#description)
- - [install](#install)
+ - [installation](#installation)
  - [usage](#usage)
  - [credits](#credits)
  - [license](#license)
 
 ## Installation Requirements
+  ---- 
  npm
-## Usage
-test
+
+ ## Usage
+  ---- 
+ test
 ## Credits
-test
+  ---- 
+ test
 ## License
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ This application is covererd under GNU Public v3.0. Click the badge to learn more. 
+
+ [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
