@@ -66,7 +66,7 @@ const renderLicense = (data) => {
   if (match) return match.licenseObj();
 };
 const renderTitle = (title) => `# ${title}\n`;
-const renderDesc = (description) => `${description}\n --- \n`;
+const renderDesc = (description) => `## Description \n${description}\n --- \n`;
 const renderTable = (data) => {
   console.log(data);
   let toc = "";

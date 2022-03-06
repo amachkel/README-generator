@@ -1,6 +1,8 @@
 # README Generator
-Using the CLI, this generator prompts the user with questions. When the user answers all questions, a quality  README.md is generated. This will allow you, the programmer, time to focus more on coding and less on typing up a high quality, descriptive,  README.
- --- 
+## Description 
+----
+Using the CLI, this generator prompts the user with questions. When the user answers all questions, a quality README.md is generated. This will allow you, the programmer, time to focus more on coding and less on typing up a high quality, descriptive, README.
+ ----
 ## Table Of Contents 
  ---- 
  - [description](#description)
@@ -16,7 +18,7 @@ Using the CLI, this generator prompts the user with questions. When the user ans
 
  ## Usage
   ---- 
- You will be prompted with a series of questions in the command line. Some of these fields are required, while some are optional. You will be prompted again to provide an answer if the section is required. Once all questions are answered, a README.md will be created. 
+ You will be prompted with a series of questions in the command line. Some of these fields are required, while some are optional. You will be prompted again to provide an answer if the section is required. Once all questions are answered, a README.md will be created.
 ## Contributors
   ---- 
  
