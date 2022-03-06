@@ -8,7 +8,7 @@ function License(name, badge, color, url) {
   this.licenseObj = () => {
     console.log(this.licenseObj);
     const generateLicense = `[![License](https://img.shields.io/badge/License-${badge}-${color}.svg)](${url})`;
-    return `## License\n ---- \n This application is covererd under ${name}. Click the badge to learn more. \n\n ${generateLicense}\n`;
+    return `## License\n This application is covererd under ${name}. Click the badge to learn more. \n\n ${generateLicense}\n`;
   };
 }
 //each license object is created and then pushed to choices array
@@ -56,7 +56,7 @@ const uni = new License(
   "http://unlicense.org/"
 );
 choices.push(uni);
-const renderTest = (test) => `## Tests \n ---- \n ${test}\n`;
+const renderTest = (test) => `## Tests \n ${test}\n`;
 const renderLicense = (data) => {
   console.log(data.license);
   if (data.license == "none") {
@@ -71,7 +71,7 @@ const renderTable = (data) => {
   console.log(data);
   let toc = "";
   if (data.table) {
-    toc = "## Table Of Contents \n ---- \n";
+    toc = "## Table Of Contents \n";
     Object.keys(data).forEach((key) => {
       console.log(key);
       //conditionals chain to determine what's put in the table of contents and how.
@@ -85,12 +85,12 @@ const renderTable = (data) => {
   return toc;
 };
 const renderInstall = (installation) =>
-  `\n## Installation Requirements\n  ---- \n ${installation}\n`;
-const renderUsage = (usage) => `\n ## Usage\n  ---- \n ${usage}\n`;
+  `\n## Installation Requirements\n  ${installation}\n`;
+const renderUsage = (usage) => `\n ## Usage\n  ${usage}\n`;
 const renderCredits = (data) =>
-  `## Contributors\n  ---- \n ${data.contributors}\n If you would like to contribute, please contact me at ${data.email}.\n`;
+  `## Contributors\n  ${data.contributors}\n If you would like to contribute, please contact me at ${data.email}.\n`;
 const renderQuestions = (data) =>
-  `## Questions\n ---- \n Questions or comments? You can reach me at ${data.email}. Check out my other projects on my GitHub: https://github.com/${data.username}`;
+  `## Questions\n Questions or comments? You can reach me at ${data.email}. Check out my other projects on my GitHub: https://github.com/${data.username}`;
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let markdown = "";
