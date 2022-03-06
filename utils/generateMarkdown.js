@@ -8,7 +8,7 @@ function License(name, badge, color, url) {
   this.licenseObj = () => {
     console.log(this.licenseObj);
     const generateLicense = `[![License](https://img.shields.io/badge/License-${badge}-${color}.svg)](${url})`;
-    return `## License\n This application is covererd under ${name}. Click the badge to learn more. \n\n ${generateLicense}`;
+    return `## License\n ---- \n This application is covererd under ${name}. Click the badge to learn more. \n\n ${generateLicense}\n`;
   };
 }
 //each license object is created and then pushed to choices array
@@ -56,7 +56,7 @@ const uni = new License(
   "http://unlicense.org/"
 );
 choices.push(uni);
-
+const renderTest = (test) => `## Tests \n ---- \n ${test}\n`;
 const renderLicense = (data) => {
   console.log(data.license);
   if (data.license == "none") {
@@ -77,9 +77,7 @@ const renderTable = (data) => {
       //conditionals chain to determine what's put in the table of contents and how.
       key == "license" && data.license == "none"
         ? ""
-        // : key == "installation"
-        // ? (toc += ` - [Installation](#${key})\n`)
-        : key != "table" && key != "title"
+        : key != "table" && key != "title" && key != "username" && key != "email"
         ? (toc += ` - [${key}](#${key})\n`)
         : "";
     });
@@ -89,8 +87,10 @@ const renderTable = (data) => {
 const renderInstall = (installation) =>
   `\n## Installation Requirements\n  ---- \n ${installation}\n`;
 const renderUsage = (usage) => `\n ## Usage\n  ---- \n ${usage}\n`;
-const renderCredits = (credits) => `## Contributors\n  ---- \n ${credits}\n`;
-
+const renderCredits = (data) =>
+  `## Contributors\n  ---- \n ${data.contributors}\n If you would like to contribute, please contact me at ${data.email}.\n`;
+const renderQuestions = (data) =>
+  `## Questions\n ---- \n Questions or comments? You can reach me at ${data.email}. Check out my other projects on my GitHub: https://github.com/${data.username}`;
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let markdown = "";
@@ -99,8 +99,10 @@ function generateMarkdown(data) {
   markdown += renderTable(data);
   markdown += renderInstall(data.installation);
   markdown += renderUsage(data.usage);
-  markdown += renderCredits(data.contributors);
+  markdown += renderCredits(data);
+  markdown += renderTest(data.test);
   markdown += renderLicense(data);
+  markdown += renderQuestions(data);
   return markdown;
 }
 
