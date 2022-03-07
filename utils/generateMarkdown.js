@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge and URL based on which license is passed in
-// If there is no license chosen, return an empty string
+// a function that returns a license badge and URL based on which license is passed in
 function License(name, badge, color, url) {
   this.name = name;
   this.badge = badge;
@@ -59,16 +58,19 @@ choices.push(uni);
 const renderTest = (test) => `## Tests \n ${test}\n`;
 const renderLicense = (data) => {
   console.log(data.license);
+  // If there is no license chosen, return an empty string
   if (data.license == "none") {
     return "";
   }
+  //match user's choice with correct license object and return it
   let match = choices.find((item) => item.name == data.license);
   if (match) return match.licenseObj();
 };
 const renderTitle = (title) => `# ${title}\n`;
-const renderDesc = (description) => `## Description \n${description}\n --- \n`;
+const renderDesc = (description) => `## Description \n${description}\n`;
 const renderTable = (data) => {
   console.log(data);
+  //table of contents is optional
   let toc = "";
   if (data.table) {
     toc = "## Table Of Contents \n";
@@ -91,7 +93,7 @@ const renderCredits = (data) =>
   `## Contributors\n  ${data.contributors}\n If you would like to contribute, please contact me at ${data.email}.\n`;
 const renderQuestions = (data) =>
   `## Questions\n Questions or comments? You can reach me at ${data.email}. Check out my other projects on my GitHub: https://github.com/${data.username}`;
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   let markdown = "";
   markdown += renderTitle(data.title);
