@@ -55,7 +55,7 @@ const uni = new License(
   "http://unlicense.org/"
 );
 choices.push(uni);
-const renderTest = (test) => `## Tests \n ${test}\n`;
+const renderTest = (tests) => `## Tests \n ${tests}\n`;
 const renderLicense = (data) => {
   console.log(data.license);
   // If there is no license chosen, return an empty string
@@ -79,10 +79,15 @@ const renderTable = (data) => {
       //conditionals chain to determine what's put in the table of contents and how.
       key == "license" && data.license == "none"
         ? ""
-        : key != "table" && key != "title" && key != "username" && key != "email"
+        : key != "table" &&
+          key != "title" &&
+          key != "username" &&
+          key != "email"
         ? (toc += ` - [${key}](#${key})\n`)
         : "";
     });
+    toc += ` - [questions](#questions)\n`;
+    toc += ` - [connect with me](#connect-with-me)\n`;
   }
   return toc;
 };
@@ -90,9 +95,12 @@ const renderInstall = (installation) =>
   `\n## Installation Requirements\n  ${installation}\n`;
 const renderUsage = (usage) => `\n ## Usage\n  ${usage}\n`;
 const renderCredits = (data) =>
-  `## Contributors\n  ${data.contributors}\n If you would like to contribute, please contact me at ${data.email}.\n`;
+  `\n## Contributors\n  ${data.contributors}\n If you would like to contribute, please reach out!\n`;
 const renderQuestions = (data) =>
-  `## Questions\n Questions or comments? You can reach me at ${data.email}. Check out my other projects on my GitHub: https://github.com/${data.username}`;
+  `\n## Questions\n Questions or comments? You can reach me at ${data.email}.\n`;
+const renderContactMe = () =>
+  `\n## Connect With Me\n 
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/amachkel)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40'>](https://www.linkedin.com/in/alex-harkins/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codepen.svg' alt='codepen' height='40'>](https://codepen.io/amachkel)\n`;
 // Function to generate markdown for README
 function generateMarkdown(data) {
   let markdown = "";
@@ -102,9 +110,10 @@ function generateMarkdown(data) {
   markdown += renderInstall(data.installation);
   markdown += renderUsage(data.usage);
   markdown += renderCredits(data);
-  markdown += renderTest(data.test);
+  markdown += renderTest(data.tests);
   markdown += renderLicense(data);
   markdown += renderQuestions(data);
+  markdown += renderContactMe();
   return markdown;
 }
 

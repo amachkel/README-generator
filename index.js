@@ -8,25 +8,29 @@ const questions = [
     type: "input",
     name: "username",
     message: "What is your github username?",
-    validate: inputValid => inputValid ? true : console.log("An answer is required"),
+    validate: (inputValid) =>
+      inputValid ? true : console.log("An answer is required"),
   },
   {
     type: "input",
     name: "email",
     message: "What is your email address?",
-    validate: inputValid => inputValid ? true : console.log("An answer is required"),
+    validate: (inputValid) =>
+      inputValid ? true : console.log("An answer is required"),
   },
   {
     type: "input",
     name: "title",
     message: "What is the title of your project?",
-    validate: inputValid => inputValid ? true : console.log("An answer is required"),
+    validate: (inputValid) =>
+      inputValid ? true : console.log("An answer is required"),
   },
   {
     type: "input",
     name: "description",
     message: "What is a description of your project?",
-    validate: inputValid => inputValid ? true : console.log("An answer is required"),
+    validate: (inputValid) =>
+      inputValid ? true : console.log("An answer is required"),
   },
   {
     type: "confirm",
@@ -65,7 +69,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "test",
+    name: "tests",
     message: "Explain testing procedures.",
     default: "There are currently no tests for this project.",
   },
